@@ -78,7 +78,7 @@ Total de empleados: 5 */
 
         // Con get(1) accedemos al elemento en la posición 1 de la lista.
         // Recuerda: los índices empiezan en 0, así que get(1) devuelve el segundo elemento ("María").
-        System.out.println("La segunda persona de la lista es: "+ empleadosTech.get(1));
+        System.out.println("La segunda persona de la lista es: " + empleadosTech.get(1));
 
         // Con size() obtenemos el tamaño de la lista, es decir, cuántos elementos contiene en total.
         // Aquí devuelve 5.
@@ -122,7 +122,7 @@ Lista de eventos: [DevFest, AI Summit, Cloud Expo, IA Conference] */
         eventos.add("DevFest"); // duplicado, no se guarda
 
         // Mostramos la lista de eventos únicos
-        System.out.println("Lista de eventos: "+ eventos);
+        System.out.println("Lista de eventos: " + eventos);
 
 /* Ejercicio 5: Creando un Map de clientes
 
@@ -144,10 +144,58 @@ El nombre del cliente con ID 2 es: Marcos */
         clientes.put(3, "Emanuel");
         clientes.put(2, "Samario");
 
-        System.out.println("El nombre del cliente con ID 2 es: "+ clientes.get(2));
+        System.out.println("El nombre del cliente con ID 2 es: " + clientes.get(2));
 
+/* Ejercicio 6: Verificando si la clave existe
 
+Eres una persona desarrolladora que está creando un sistema de gestión de clientes para una empresa.
+El equipo de atención necesita acceder a los datos de los clientes registrados en el sistema mediante un ID, y cuenta con tu ayuda
+para implementar este sistema de búsqueda.
 
+Tu tarea es:
 
+* Almacenar los clientes a través de un ‘Map<Integer, String>’, donde la clave es el ID y el valor es el nombre.
+* Registrar cinco clientes en el sistema.
+* Verificar si un ID específico existe antes de intentar recuperar el nombre del cliente.
+* Si la clave existe, puedes acceder al nombre asociado; de lo contrario, muestra un mensaje informando que el cliente no fue encontrado.
+
+* Ejemplo de entrada:
+
+clientes.put(1, "María");
+clientes.put(2, "Marcos");
+clientes.put(3, "Ana");
+clientes.put(4, "Juana");
+clientes.put(5, "Karen");
+
+Salida esperada:
+
+Si el cliente existe: El nombre del cliente con ID 5 es: Karen
+
+Si no existe: Cliente con ID 6 no encontrado. */
+
+        /* Creamos un Map donde la clave es un Integer (ID del cliente) y el valor es un String (nombre del cliente).*/
+        Map<Integer, String> clientesVip = new HashMap<>();
+
+        // Agregamos clientes al mapa usando el método put(clave, valor).
+        clientesVip.put(1, "María");
+        clientesVip.put(2, "Marcos");
+        clientesVip.put(3, "Ana");
+        clientesVip.put(4, "Joana");
+        clientesVip.put(5, "Karen");
+
+        // Definimos el ID del cliente que queremos buscar.
+        int idCliente = 3;
+
+        // Verificamos si el mapa contiene la clave idCliente.
+        if (clientesVip.containsKey(idCliente)) {
+            // Si existe, obtenemos el nombre asociado con get(clave). String nombreCliente = clientesVip.get(idCliente);
+            String nombreCliente = clientesVip.get(idCliente);
+            System.out.println("El nombre del cliente con ID " + idCliente + " es: " + nombreCliente);
+        } else {
+            // Si no existe, mostramos un mensaje de error.
+            System.out.println("Cliente con ID " + idCliente + " no encontrado.");
+        }
     }
 }
+
+
